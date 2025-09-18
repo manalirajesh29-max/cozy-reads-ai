@@ -14,14 +14,14 @@ interface BookCardProps {
 
 const BookCard = ({ title, author, genre, rating, description, image, featured = false }: BookCardProps) => {
   return (
-    <Card className={`group hover:shadow-[var(--shadow-book)] transition-all duration-300 ${featured ? 'border-primary/20' : ''}`}>
+    <Card className={`group hover-lift animate-fade-in cursor-pointer ${featured ? 'border-primary/20' : ''}`}>
       <CardContent className="p-4">
         <div className="flex gap-4">
           <div className="flex-shrink-0">
             <img
               src={image}
               alt={`${title} book cover`}
-              className="w-20 h-28 object-cover rounded-md shadow-sm"
+              className="w-20 h-28 object-cover rounded-md shadow-sm transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           

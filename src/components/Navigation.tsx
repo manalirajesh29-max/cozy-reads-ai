@@ -34,7 +34,7 @@ const Navigation = () => {
                   key={item.path}
                   variant={isActive ? "secondary" : "ghost"}
                   asChild
-                  className="text-sm"
+                  className="text-sm hover-scale"
                 >
                   <Link to={item.path} className="flex items-center gap-2">
                     {Icon && <Icon className="h-4 w-4" />}

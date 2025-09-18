@@ -54,20 +54,20 @@ const Index = () => {
       <section className="bg-gradient-to-br from-warm-beige to-cream py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
               Discover Your Next Great Read
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-muted-foreground mb-8 animate-fade-in [animation-delay:0.2s]">
               Explore curated book recommendations across all genres, from timeless classics to contemporary bestsellers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="text-lg px-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:0.4s]">
+              <Button size="lg" asChild className="text-lg px-8 hover-scale">
                 <Link to="/chatbot">
                   <BookOpen className="mr-2 h-5 w-5" />
                   Get AI Recommendations
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-lg px-8">
+              <Button size="lg" variant="outline" asChild className="text-lg px-8 hover-scale">
                 <Link to="/fiction">Browse Books</Link>
               </Button>
             </div>
@@ -85,7 +85,9 @@ const Index = () => {
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredBooks.map((book, index) => (
-              <BookCard key={index} {...book} />
+              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <BookCard {...book} />
+              </div>
             ))}
           </div>
         </section>
@@ -98,13 +100,14 @@ const Index = () => {
           </div>
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {genres.map((genre) => (
+            {genres.map((genre, index) => (
               <Link
                 key={genre.name}
                 to={genre.path}
-                className="group p-6 rounded-lg border border-border bg-card hover:shadow-[var(--shadow-soft)] transition-all duration-300"
+                className="group p-6 rounded-lg border border-border bg-card hover-lift animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors story-link">
                   {genre.name}
                 </h3>
                 <p className="text-muted-foreground">{genre.description}</p>
@@ -114,7 +117,7 @@ const Index = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="text-center py-12 px-6 bg-gradient-to-r from-warm-beige to-cream rounded-lg">
+        <section className="text-center py-12 px-6 bg-gradient-to-r from-warm-beige to-cream rounded-lg animate-fade-in">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             Need Help Finding the Perfect Book?
           </h2>
@@ -122,7 +125,7 @@ const Index = () => {
             Our AI-powered chatbot can provide personalized recommendations based on your preferences, 
             reading history, and mood. Get started with a simple conversation!
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="hover-scale">
             <Link to="/chatbot">
               <BookOpen className="mr-2 h-5 w-5" />
               Chat with BookWise AI

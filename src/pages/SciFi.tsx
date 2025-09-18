@@ -52,7 +52,9 @@ const SciFi = () => {
         
         <div className="grid gap-6 md:grid-cols-2">
           {sciFiBooks.map((book, index) => (
-            <BookCard key={index} {...book} />
+            <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <BookCard {...book} />
+            </div>
           ))}
         </div>
       </main>

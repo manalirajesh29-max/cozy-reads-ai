@@ -108,7 +108,8 @@ const Chatbot = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => handleSuggestedQuestion(question)}
-                  className="text-left justify-start h-auto py-2 px-3"
+                  className="text-left justify-start h-auto py-2 px-3 hover-scale animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {question}
                 </Button>
@@ -123,10 +124,10 @@ const Chatbot = () => {
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
+                  className={`flex animate-fade-in ${message.isUser ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${
+                    className={`max-w-[80%] p-3 rounded-lg transition-all duration-200 hover:scale-[1.02] ${
                       message.isUser
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted text-muted-foreground"
@@ -154,7 +155,7 @@ const Chatbot = () => {
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
             className="flex-1"
           />
-          <Button onClick={handleSendMessage} disabled={!inputMessage.trim()}>
+          <Button onClick={handleSendMessage} disabled={!inputMessage.trim()} className="hover-scale">
             <Send className="h-4 w-4" />
           </Button>
         </div>
