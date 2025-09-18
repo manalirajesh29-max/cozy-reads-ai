@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Book-specific colors
+        "warm-beige": "hsl(var(--warm-beige))",
+        "soft-brown": "hsl(var(--soft-brown))",
+        "deep-brown": "hsl(var(--deep-brown))",
+        "cream": "hsl(var(--cream))",
+        "sage": "hsl(var(--sage))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
