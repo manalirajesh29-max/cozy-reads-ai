@@ -132,6 +132,30 @@ export default {
         "book-hover": {
           "0%": { transform: "translateY(0) scale(1)" },
           "100%": { transform: "translateY(-4px) scale(1.02)" }
+        },
+        "card-glow": {
+          "0%": { boxShadow: "0 4px 20px -4px hsl(var(--deep-brown) / 0.1)" },
+          "100%": { boxShadow: "0 20px 40px -8px hsl(var(--deep-brown) / 0.25), 0 0 0 1px hsl(var(--primary) / 0.1)" }
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" }
+        },
+        "card-entrance": {
+          "0%": { 
+            opacity: "0", 
+            transform: "translateY(20px) scale(0.95)",
+            filter: "blur(4px)"
+          },
+          "100%": { 
+            opacity: "1", 
+            transform: "translateY(0) scale(1)",
+            filter: "blur(0px)"
+          }
+        },
+        "bounce-subtle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-2px)" }
         }
       },
       animation: {
@@ -150,7 +174,11 @@ export default {
         "exit": "fade-out 0.3s ease-out, scale-out 0.2s ease-out",
         
         // Book Animations
-        "book-hover": "book-hover 0.3s ease-out forwards"
+        "book-hover": "book-hover 0.3s ease-out forwards",
+        "card-glow": "card-glow 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "shimmer": "shimmer 2s ease-in-out infinite",
+        "card-entrance": "card-entrance 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "bounce-subtle": "bounce-subtle 0.6s ease-in-out"
       },
     },
   },
@@ -167,6 +195,17 @@ export default {
         },
         '.hover-lift': {
           '@apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-[var(--shadow-book)]': {}
+        },
+        '.card-hover-effect': {
+          '@apply transition-all duration-500 ease-out hover:transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_20px_40px_-8px_hsl(var(--deep-brown)_/_0.25),_0_0_0_1px_hsl(var(--primary)_/_0.1)]': {}
+        },
+        '.card-shimmer': {
+          'background': 'linear-gradient(90deg, transparent, hsl(var(--primary) / 0.04), transparent)',
+          'background-size': '200% 100%',
+          '@apply animate-shimmer': {}
+        },
+        '.card-glow-border': {
+          '@apply relative before:absolute before:inset-0 before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-transparent before:via-primary/20 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500': {}
         }
       }
       addUtilities(newUtilities)

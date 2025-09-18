@@ -85,7 +85,14 @@ const Index = () => {
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {featuredBooks.map((book, index) => (
-              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div 
+                key={index} 
+                className="animate-card-entrance opacity-0" 
+                style={{ 
+                  animationDelay: `${index * 150}ms`,
+                  animationFillMode: 'forwards'
+                }}
+              >
                 <BookCard {...book} />
               </div>
             ))}
